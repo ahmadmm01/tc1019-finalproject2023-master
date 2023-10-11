@@ -21,21 +21,21 @@ class FormPageView extends GetView<FormPageController> {
               colors: [gradientStartColor, gradientEndColor],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              stops: [0.3, 0.7],
+              stops: const [0.3, 0.7],
             ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
-              Icon(
+              const Icon(
                 Icons.upload_file_outlined,
                 size: 100,
                 color: Colors.white,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Container(
@@ -48,21 +48,21 @@ class FormPageView extends GetView<FormPageController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    Text(
+                    const Text(
                       "Laporkan Sampah",
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    Text(
+                    const Text(
                       "Silahkan Isi Data Berikut",
                       style: TextStyle(fontSize: 15, color: Colors.grey),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
-                    Container(
+                    SizedBox(
                       width: 400,
                       child: Form(
                         key: controller.loginFormKey,
@@ -72,12 +72,12 @@ class FormPageView extends GetView<FormPageController> {
                               padding: const EdgeInsets.all(10.0),
                               child: TextFormField(
                                 controller: controller.namaC,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 16.0,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w600),
-                                decoration: InputDecoration(
-                                  label: const Text('Nama'),
+                                decoration: const InputDecoration(
+                                  label: Text('Nama'),
                                   hintText: 'Isi Namamu',
                                   border: OutlineInputBorder(),
                                 ),
@@ -95,12 +95,12 @@ class FormPageView extends GetView<FormPageController> {
                               padding: const EdgeInsets.all(10.0),
                               child: TextFormField(
                                 controller: controller.descC,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 16.0,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w600),
-                                decoration: InputDecoration(
-                                  label: const Text('Deskripsi sampah'),
+                                decoration: const InputDecoration(
+                                  label: Text('Deskripsi sampah'),
                                   hintText: 'Isi Deskripsi',
                                   border: OutlineInputBorder(),
                                 ),
@@ -118,12 +118,12 @@ class FormPageView extends GetView<FormPageController> {
                               padding: const EdgeInsets.all(10.0),
                               child: TextFormField(
                                 controller: controller.lokasiC,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 16.0,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w600),
-                                decoration: InputDecoration(
-                                  label: const Text('Lokasi'),
+                                decoration: const InputDecoration(
+                                  label: Text('Lokasi'),
                                   hintText: 'Isi Lokasi sampah',
                                   border: OutlineInputBorder(),
                                 ),
@@ -137,7 +137,7 @@ class FormPageView extends GetView<FormPageController> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 30,),
+                            const SizedBox(height: 30,),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -154,10 +154,10 @@ class FormPageView extends GetView<FormPageController> {
                                         ],
                                         begin: Alignment.centerRight,
                                         end: Alignment.centerLeft,
-                                        stops: [0.3, 0.7],
+                                        stops: const [0.3, 0.7],
                                       ),
                                     ),
-                                    child: Padding(
+                                    child: const Padding(
                                       padding: EdgeInsets.all(12.0),
                                       child: Text(
                                         "Cancel",
@@ -185,17 +185,17 @@ class FormPageView extends GetView<FormPageController> {
                                         ],
                                         begin: Alignment.centerLeft,
                                         end: Alignment.centerRight,
-                                        stops: [0.3, 0.7],
+                                        stops: const [0.3, 0.7],
                                       ),
                                     ),
-                                    child: Padding(
+                                    child: const Padding(
                                       padding: EdgeInsets.all(12.0),
                                       child: Text(
                                         "Save",
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors white),
+                                            color: Colors.white),
                                       ),
                                     ),
                                   ),

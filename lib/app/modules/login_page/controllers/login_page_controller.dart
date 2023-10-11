@@ -25,7 +25,7 @@ class LoginPageController extends GetxController {
           ),
         );
       } else if (e.toString() == "AuthException: INVALID_PASSWORD") {
-        Get.showsnackbar(
+        Get.showSnackbar(
           const GetSnackBar(
             title: "Kesalahan Login",
             message: "Password salah",
