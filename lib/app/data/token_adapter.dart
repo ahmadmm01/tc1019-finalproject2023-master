@@ -1,6 +1,7 @@
 import 'package:firedart/firedart.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+/// Kelas `TokenAdapter` adalah adapter untuk mengkonversi objek `Token` ke dan dari format yang dapat disimpan dalam Hive.
 class TokenAdapter extends TypeAdapter<Token> {
   @override
   final typeId = 42;
