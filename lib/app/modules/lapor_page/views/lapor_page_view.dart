@@ -4,14 +4,13 @@ import 'package:final_project_2023/app/data/data.dart';
 import 'package:final_project_2023/app/data/warna.dart';
 import 'package:final_project_2023/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:final_project_2023/app/data/data.dart';
-
 import 'package:get/get.dart';
 
 import '../controllers/lapor_page_controller.dart';
 
 class LaporPageView extends GetView<LaporPageController> {
   const LaporPageView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +29,7 @@ class LaporPageView extends GetView<LaporPageController> {
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.2),
-                offset: Offset(0, 0),
+                offset: const Offset(0, 0),
                 blurRadius: 15,
                 spreadRadius: 15,
               )
@@ -54,17 +53,17 @@ class LaporPageView extends GetView<LaporPageController> {
     );
   }
 
+  // Fungsi yang mengembalikan widget untuk tampilan utama
   Widget _bodyWidget() {
-    return Container(
-      child: Stack(
-        children: [
-          Positioned(child: _forgroundImageWidget()),
-          _textContainer()
-        ],
-      ),
+    return Stack(
+      children: [
+        Positioned(child: _forgroundImageWidget()),
+        _textContainer()
+      ],
     );
   }
 
+  // Fungsi yang mengembalikan widget untuk gambar latar depan
   Widget _forgroundImageWidget() {
     return Image.asset(
       AppAssets.forground,
@@ -72,9 +71,10 @@ class LaporPageView extends GetView<LaporPageController> {
     );
   }
 
+  // Fungsi yang mengembalikan widget untuk kontainer teks
   Widget _textContainer() {
     return Container(
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         horizontal: 40,
       ).copyWith(top: 100),
       child: Column(
@@ -83,17 +83,17 @@ class LaporPageView extends GetView<LaporPageController> {
         children: [
           RichText(
             text: TextSpan(
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 60,
                 fontWeight: FontWeight.bold,
               ),
               children: [
-                TextSpan(text: "Ayo"),
+                const TextSpan(text: "Ayo"),
                 TextSpan(
                   text: " Laporkan\nTumpukan Sampah",
                   style: TextStyle(color: AppColors.primary),
                 ),
-                TextSpan(text: " Di"),
+                const TextSpan(text: " Di"),
                 TextSpan(
                   text: "Kota",
                   style: TextStyle(color: AppColors.primary),
@@ -101,13 +101,13 @@ class LaporPageView extends GetView<LaporPageController> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               SizedBox(
@@ -118,7 +118,7 @@ class LaporPageView extends GetView<LaporPageController> {
                       onPressed: () {
                         Get.toNamed(Routes.FORM_PAGE);
                       },
-                      child: Text(
+                      child: const Text(
                         "LAPOR SAMPAH",
                         style: TextStyle(fontSize: 20),
                       ),
@@ -129,7 +129,7 @@ class LaporPageView extends GetView<LaporPageController> {
                         onPressed: () {
                           Get.toNamed(Routes.HASIL_LAPOR_PAGE);
                         },
-                        child: Text(
+                        child: const Text(
                           "LIHAT LAPORAN",
                           style: TextStyle(fontSize: 20),
                         ),
