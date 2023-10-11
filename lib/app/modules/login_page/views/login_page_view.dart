@@ -6,10 +6,13 @@ import 'package:get/get.dart';
 
 import '../controllers/login_page_controller.dart';
 
+/// View untuk halaman login.
 class LoginPageView extends GetView<LoginPageController> {
   String email = " ";
   String pass = " ";
+
   LoginPageView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +66,7 @@ class LoginPageView extends GetView<LoginPageController> {
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      "Silahkan Login utnuk masuk ke aplikasi",
+                      "Silahkan Login untuk masuk ke aplikasi",
                       style: TextStyle(fontSize: 15, color: Colors.grey),
                     ),
                     SizedBox(
@@ -83,7 +86,7 @@ class LoginPageView extends GetView<LoginPageController> {
                                     fontWeight: FontWeight.w600),
                                 decoration: InputDecoration(
                                   suffixIcon: Icon(Icons.email_outlined),
-                                  label: const Text('Email'),
+                                  labelText: 'Email',
                                   hintText: 'Isi Email',
                                   border: OutlineInputBorder(),
                                 ),
@@ -101,8 +104,8 @@ class LoginPageView extends GetView<LoginPageController> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.w600),
                                 decoration: InputDecoration(
-                                  suffixIcon: Icon(Icons.password),
-                                  label: const Text('Password'),
+                                  suffixIcon: Icon(Icons.lock),
+                                  labelText: 'Password',
                                   hintText: 'Isi Password',
                                   border: OutlineInputBorder(),
                                 ),
@@ -138,13 +141,14 @@ class LoginPageView extends GetView<LoginPageController> {
                                       child: Text(
                                         "Login",
                                         style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  onTap: () async{
+                                  onTap: () async {
                                     await controller.signIn(email, pass);
                                   },
                                 ),

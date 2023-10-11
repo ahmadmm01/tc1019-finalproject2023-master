@@ -3,10 +3,13 @@ import 'package:firedart/firedart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/// Controller untuk halaman login.
 class LoginPageController extends GetxController {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
+  /// Fungsi untuk melakukan proses masuk (sign in) dengan Firebase Authentication.
+  /// Fungsi ini menerima alamat email dan kata sandi sebagai argumen.
   Future signIn(String email, String pass) async {
     try {
       await _firebaseAuth.signIn(email, pass);
@@ -16,15 +19,15 @@ class LoginPageController extends GetxController {
       if (e.toString() == "AuthException: INVALID_EMAIL") {
         Get.showSnackbar(
           const GetSnackBar(
-            title: "Login Error",
+            title: "Kesalahan Login",
             message: "Format email tidak sesuai",
             duration: Duration(seconds: 2),
           ),
         );
       } else if (e.toString() == "AuthException: INVALID_PASSWORD") {
-        Get.showSnackbar(
+        Get.showsnackbar(
           const GetSnackBar(
-            title: "Login Error",
+            title: "Kesalahan Login",
             message: "Password salah",
             duration: Duration(seconds: 2),
           ),
@@ -32,7 +35,7 @@ class LoginPageController extends GetxController {
       } else if (e.toString() == "AuthException: EMAIL_NOT_FOUND") {
         Get.showSnackbar(
           const GetSnackBar(
-            title: "Login Error",
+            title: "Kesalahan Login",
             message: "User belum terdaftar",
             duration: Duration(seconds: 2),
           ),
@@ -41,8 +44,9 @@ class LoginPageController extends GetxController {
     }
   }
 
-  //TODO: Implement LoginPageController
+  //TODO: Implementasikan fitur-fitur lainnya sesuai kebutuhan.
 
+  // Contoh: Untuk menghitung jumlah, Anda dapat menggunakan variabel `count`.
   // final count = 0.obs;
   // @override
   // void onInit() {
@@ -59,5 +63,6 @@ class LoginPageController extends GetxController {
   //   super.onClose();
   // }
 
+  // Contoh: Untuk menginkrementasi nilai `count`, Anda dapat menggunakan fungsi `increment`.
   // void increment() => count.value++;
 }
