@@ -2,10 +2,11 @@ import 'package:firedart/firedart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/// Controller untuk halaman pelaporan sampah.
 class FormPageController extends GetxController {
-    final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   CollectionReference menucollection = Firestore.instance.collection('sampah');
-    late TextEditingController namaC, descC, lokasiC;
+  late TextEditingController namaC, descC, lokasiC;
 
   @override
   void onInit() {
@@ -15,53 +16,45 @@ class FormPageController extends GetxController {
     lokasiC = TextEditingController();
   }
 
-    String? validateName(String value) {
+  /// Fungsi untuk memvalidasi bidang "Nama" pada formulir.
+  String? validateName(String value) {
     if (value.isEmpty) {
-      return "nama harus di isi";
+      return "Nama harus di isi";
     }
     return null;
   }
 
+  /// Fungsi untuk memvalidasi bidang "Deskripsi Sampah" pada formulir.
   String? validatedesc(String value) {
     if (value.isEmpty) {
-      return "deskripsi harus di isi";
+      return "Deskripsi harus di isi";
     }
     return null;
   }
 
-    String? validatelokasi(String value) {
+  /// Fungsi untuk memvalidasi bidang "Lokasi Sampah" pada formulir.
+  String? validatelokasi(String value) {
     if (value.isEmpty) {
       return "Lokasi harus di isi";
     }
     return null;
   }
 
+  /// Fungsi untuk menyimpan data laporan sampah ke database.
   Future savedata(String nama, String desc, String lokasi) async {
     if (loginFormKey.currentState!.validate()) {
       loginFormKey.currentState!.save();
-      await menucollection.add({"nama": nama, "deskripsi sampah": desc, "Lokasi sampah":lokasi});
+      await menucollection.add(
+          {"nama": nama, "deskripsi sampah": desc, "Lokasi sampah": lokasi});
       Get.defaultDialog(
         title: "Berhasil",
-        middleText: "data telah ditambah",
+        middleText: "Data telah ditambah",
         onConfirm: () {
           Get.back();
           Get.back();
         },
-        textConfirm: "okay",
+        textConfirm: "Okay",
       );
     }
-
   }
-
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  // }
-
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
-
-  // void increment() => count.value++;
 }

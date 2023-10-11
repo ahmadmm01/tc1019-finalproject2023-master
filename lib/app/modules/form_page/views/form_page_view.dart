@@ -5,8 +5,10 @@ import 'package:get/get.dart';
 
 import '../controllers/form_page_controller.dart';
 
+/// Tampilan (View) untuk halaman laporan sampah.
 class FormPageView extends GetView<FormPageController> {
   const FormPageView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +53,7 @@ class FormPageView extends GetView<FormPageController> {
                     ),
                     Text(
                       "Laporkan Sampah",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       "Silahkan Isi Data Berikut",
@@ -194,7 +195,7 @@ class FormPageView extends GetView<FormPageController> {
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color: Colors white),
                                       ),
                                     ),
                                   ),
