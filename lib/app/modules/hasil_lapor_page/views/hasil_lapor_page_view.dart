@@ -5,10 +5,14 @@ import 'package:get/get.dart';
 
 import '../controllers/hasil_lapor_page_controller.dart';
 
+/// Kelas `HasilLaporPageView` merupakan tampilan untuk menampilkan hasil laporan tumpukan sampah.
 class HasilLaporPageView extends GetView<HasilLaporPageController> {
+  /// Konstruktor kelas `HasilLaporPageView`.
   const HasilLaporPageView({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
+    /// Membuat tampilan Scaffold dengan appBar dan body.
     return Scaffold(
       appBar: AppBar(
         title: const Text('Laporan tumpukan sampah'),
@@ -24,15 +28,16 @@ class HasilLaporPageView extends GetView<HasilLaporPageController> {
               colors: [gradientStartColor, gradientEndColor],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              stops: [0.3, 0.7],
+              stops: const [0.3, 0.7],
             ),
           ),
           child: FutureBuilder(
+            /// Menggunakan fungsi `getReport` dari objek `controller` untuk mendapatkan data laporan.
             future: controller.getReport(),
-            // future: controller.getReport(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 if (snapshot.hasData) {
+                  /// Jika terdapat data, tampilkan data laporan dalam bentuk daftar.
                   return Column(
                     children: [
                       ListView.builder(
@@ -50,13 +55,17 @@ class HasilLaporPageView extends GetView<HasilLaporPageController> {
                     ],
                   );
                 } else if (snapshot.hasError) {
+                  /// Jika terjadi kesalahan dalam memperoleh data, tampilkan pesan kesalahan.
                   return Center(child: Text(snapshot.error.toString()));
                 } else {
+                  /// Jika tidak ada data yang ditemukan, tampilkan pesan "No Data".
                   return const Center(
-                    child: Text('No Data'),
+                    child: Text('Tidak Ada Data'),
                   );
                 }
               }
+              
+              /// Menampilkan indikator loading selama data sedang dimuat.
               return const Center(
                 child: CircularProgressIndicator(),
               );
