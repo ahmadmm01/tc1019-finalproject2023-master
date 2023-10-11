@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../controllers/register_page_controller.dart';
 
+/// View untuk halaman Register.
 class RegisterPageView extends GetView<RegisterPageController> {
   String email = " ";
   String pass = " ";

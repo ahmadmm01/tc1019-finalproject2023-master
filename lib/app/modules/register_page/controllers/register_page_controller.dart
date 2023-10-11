@@ -6,7 +6,10 @@ class RegisterPageController extends GetxController {
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-    Future signUp(String email, String pass) async {
+  /// Fungsi signUp digunakan untuk mendaftarkan pengguna dengan email dan password.
+  /// Jika pendaftaran berhasil, akan menampilkan dialog sukses.
+  /// Jika terjadi kesalahan, akan menampilkan snackbar dengan pesan kesalahan yang sesuai.
+  Future signUp(String email, String pass) async {
     try{
     await _firebaseAuth.signUp(email, pass);
     Get.defaultDialog(
